@@ -5,6 +5,8 @@ The following is a description of the Last Write Wins (LWW) set from Wikipedia (
 
 This repository implements this set as a python class LWW, with the following usage:
 
+## Example usage
+
 from LWW import LWW
 
 lww = LWW()  #initiate the set.  options include bias='add' for when the timestamp of the last add and the last removal are    the same (which chooses the last add), and the precision of the timestamp, time_precision, with a default of seven decimal places.
@@ -33,4 +35,27 @@ lww.update()   #update the current value of the set, whiCh is ['element2']
 
 lww.exists('element2')    #a method for checking whether an element exists in the set, without needing to call update()
 
+## Attributes
+
+.add_set: a dictionary of elements to be added, with timestamps
+
+.remove_set: a dictionary of elements to be removed, with timestamps
+
+.set: the current members of the LWW set after update() is called
+
+.bias: can be set 'add' to make adds prioritised over removes when they occur with the same timestamp, otherwise removes are prioritised
+
+.time_precision: the number of decimal places of the timestamps (default 7)
+
+## Methods
+
+add(object): adds the object to the add_set with the current timestamp
+
+remove(object): adds the object to the remove_set with the current timestamp
+
+update(): takes the remove_set and add_set and updates the value of set, as a list
+
+exists(object): uses the add_set and remove_set to return True if an object is in the element set, False otherwise
+
+merge_with(LWW): finds the latest add timestamp for each element in the LWW and the LWW to be merged with, and the latest remove timestamp for each element.  a new add_set and remove_set are produced for the first LWW, with the latest add and remove timestamps.
 
