@@ -5,6 +5,8 @@ The following is a description of the Last Write Wins (LWW) set from Wikipedia (
 
 This repository implements this set, with the following usage:
 
+from LWW import LWW
+
 lww = LWW()  #initiate the set
 lww.add('element1')  #add an element
 lww.remove('element1')  #remove the element
