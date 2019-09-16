@@ -9,10 +9,12 @@ class LWW():
     self.time_precision = time_precision
 
   def add(self, element):
+    element = str(element)
     current_timestamp = round(time.time(), self.time_precision)
     self.add_set[element] = current_timestamp
 
   def remove(self, element):
+    element = str(element)
     current_timestamp = round(time.time(), self.time_precision)
     self.remove_set[element] = current_timestamp
 
