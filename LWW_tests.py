@@ -20,6 +20,7 @@ def test2():
   LWW1.merge_with(LWW2)
   LWW1.update()
   expected = ['element2', 'element3']
+  print(LWW1.set)
   assert LWW1.set == expected and LWW1.exists('element2') and LWW1.exists('element3') and not LWW1.exists('element1')
   
 def test3():
@@ -53,6 +54,8 @@ def test5():
   LWW1.update()
   expected = ['element2']
   assert LWW1.set == expected and LWW1.exists('element2') and not LWW1.exists('element1') and not LWW1.exists('element3')
+
+
 
 def main():
   test1()
