@@ -10,14 +10,19 @@ from LWW import LWW
 lww = LWW()  #initiate the set.  options include bias='add' for when the timestamp of the last add and the last removal are    the same (which chooses the last add), and the precision of the timestamp, time_precision, with a default of seven decimal places.
 
 lww.add('element1')  #add an element
+
 lww.remove('element1')  #remove the element
+
 lww.remove('element2')  #it is also possible to remove an element that has not been added
+
 lww.add('element1')  #add an element that has previously been deleted
 
 lww.update()  #calculate the current value of the set, which is ['element1']
 
 lww2 = LWW()  #initiate a second set
+
 lww2.remove('element1')
+
 lww2.add('element2')
 
 lww.merge_with(lww2) #merge both LWW's
