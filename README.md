@@ -21,5 +21,6 @@ lww2.remove('element1')
 lww2.add('element2')
 
 lww.merge_with(lww2) #merge both LWW's
+
 lww.update()   #calculate the current value of the set, whiCh is ['element2']
 
