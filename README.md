@@ -37,9 +37,9 @@ lww.exists('element2')    #a method for checking whether an element exists in th
 
 ## Attributes
 
-.add_set: a dictionary of elements to be added, with timestamps
+.add_set: a dictionary of elements to be added as keys, and lists of timestamps as values
 
-.remove_set: a dictionary of elements to be removed, with timestamps
+.remove_set: a dictionary of elements to be removed as keys, and lists of timestamps as values
 
 .set: the current members of the LWW set after update() is called
 
@@ -59,7 +59,7 @@ update(): takes the remove_set and add_set and updates the value of set, as a li
 
 exists(object): uses the add_set and remove_set to return True if an object is in the element set, False otherwise
 
-merge_with(LWW): finds the latest add timestamp for each element in the LWW and the LWW to be merged with, and the latest remove timestamp for each element.  a new add_set and remove_set are produced for the first LWW, with the latest add and remove timestamps.
+merge_with(LWW): produces a new add_set which is a union of the timestamps for each element in the add_set of the two LWW's, and similarly for the remove_set of each LWW. 
 
 ## Tests
 
