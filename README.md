@@ -49,6 +49,8 @@ lww.exists('element2')    #a method for checking whether an element exists in th
 
 ## Methods
 
+__init__(bias='add', time_precision=7): the bias is set to 'add' by default, but set to any other value (e.g. 'remove') will make the LWW biased to the remove timestamp.  time_precision sets the attribute .time_precision.
+
 add(object): adds the object to the add_set with the current timestamp
 
 remove(object): adds the object to the remove_set with the current timestamp
