@@ -19,7 +19,7 @@ lww.remove('element2')  #it is also possible to remove an element that has not b
 
 lww.add('element1')  #add an element that has previously been deleted
 
-lww.update()  #update the current value of the set, which is ['element1']
+lww.update()  #update the current value of the set, which is {'element1'}
 
 print(lww.set) #print the current value of the set
 
@@ -31,17 +31,17 @@ lww2.add('element2')
 
 lww.merge_with(lww2) #merge both LWW's
 
-lww.update()   #update the current value of the set, whiCh is ['element2']
+lww.update()   #update the current value of the set, whiCh is {'element2'}
 
 lww.exists('element2')    #a method for checking whether an element exists in the set, without needing to call update()
 
 ## Attributes
 
-.add_set: a dictionary of elements to be added as keys, and lists of timestamps as values
+.add_set: a dictionary of elements to be added, with timestamps
 
-.remove_set: a dictionary of elements to be removed as keys, and lists of timestamps as values
+.remove_set: a dictionary of elements to be removed, with timestamps
 
-.set: the current members of the LWW set after update() is called
+.set: a set of the current members of the LWW set after update() is called
 
 .bias: can be set 'add' to make adds prioritised over removes when they occur with the same timestamp, otherwise removes are prioritised
 
@@ -55,11 +55,11 @@ add(object): adds the object to the add_set with the current timestamp
 
 remove(object): adds the object to the remove_set with the current timestamp
 
-update(): takes the remove_set and add_set and updates the value of set, as a list
+update(): takes the remove_set and add_set and updates the value of set
 
 exists(object): uses the add_set and remove_set to return True if an object is in the element set, False otherwise
 
-merge_with(LWW): produces a new add_set which is a union of the timestamps for each element in the add_set of the two LWW's, and similarly for the remove_set of each LWW. 
+merge_with(LWW): finds the latest add timestamp for each element in the LWW and the LWW to be merged with, and the latest remove timestamp for each element.  a new add_set and remove_set are produced for the first LWW, with the latest add and remove timestamps.
 
 ## Tests
 

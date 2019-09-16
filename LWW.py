@@ -4,7 +4,7 @@ class LWW():
   def __init__(self, bias='add', time_precision = 7):
     self.add_set = {}
     self.remove_set = {}
-    self.set = []
+    self.set = ()
     self.bias = bias
     self.time_precision = time_precision
 
@@ -64,18 +64,18 @@ class LWW():
       self.remove_set[member] = sorted(timestamps1 + timestamps2)
 
   def update(self):
-    self.set = []
+    self.set = set()
     for member in self.add_set.keys():
       try:
         last_remove_timestamp = self.remove_set[member][-1]
       except:
-        self.set.append(member)
+        self.set.add(member)
         continue
       last_add_timestamp = self.add_set[member][-1]
       if last_add_timestamp > last_remove_timestamp:
-        self.set.append(member)
+        self.set.add(member)
       if last_add_timestamp == last_remove_timestamp and self.bias == 'add':
-        self.set.append(member)
+        self.set.add(member)
         
         
 
