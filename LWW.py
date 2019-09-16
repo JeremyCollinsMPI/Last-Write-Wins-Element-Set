@@ -16,6 +16,22 @@ class LWW():
     current_timestamp = round(time.time(), self.time_precision)
     self.remove_set[element] = current_timestamp
 
+  def exists(self, element):
+    try:
+      last_add_timestamp = self.add_set[element]
+    except:
+      return False
+    try:
+      last_remove_timestamp = self.remove_set[element]
+    except:
+      return True
+    if last_add_timestamp > last_remove_timestamp:
+      return True
+    elif last_add_timestamp == last_remove_timestamp and self.bias == 'add':
+      return True
+    else:
+      return False
+
   def merge_with(self, LWW2):
     for member in LWW2.add_set.keys():
       try:
