@@ -31,7 +31,7 @@ lww2.add('element2')
 
 lww.merge_with(lww2) #merge both LWW's
 
-lww.update()   #update the current value of the set, whiCh is {'element2'}
+lww.update()   #update the current value of the set, which is {'element2'}
 
 lww.exists('element2')    #a method for checking whether an element exists in the set, without needing to call update()
 
