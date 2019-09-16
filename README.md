@@ -17,7 +17,9 @@ lww.remove('element2')  #it is also possible to remove an element that has not b
 
 lww.add('element1')  #add an element that has previously been deleted
 
-lww.update()  #calculate the current value of the set, which is ['element1']
+lww.update()  #update the current value of the set, which is ['element1']
+
+print(lww.set) #print the current value of the set
 
 lww2 = LWW()  #initiate a second set
 
@@ -27,5 +29,8 @@ lww2.add('element2')
 
 lww.merge_with(lww2) #merge both LWW's
 
-lww.update()   #calculate the current value of the set, whiCh is ['element2']
+lww.update()   #update the current value of the set, whiCh is ['element2']
+
+lww.exists('element2')    #a method for checking whether an element exists in the set, without needing to call update()
+
 
