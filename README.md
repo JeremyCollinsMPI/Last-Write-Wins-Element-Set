@@ -61,3 +61,17 @@ exists(object): uses the add_set and remove_set to return True if an object is i
 
 merge_with(LWW): finds the latest add timestamp for each element in the LWW and the LWW to be merged with, and the latest remove timestamp for each element.  a new add_set and remove_set are produced for the first LWW, with the latest add and remove timestamps.
 
+## Tests
+
+test1: adding and removing elements in a LWW
+
+test2: merging two LWW's which have different elements
+
+test3: merging two LWW's, one which has removed an element after it has been added to the other
+
+test4: adding and removing an element simultaneously with a bias of adding
+
+test5: adding and removing an element simultaneously with a bias of removing
+
+
+
